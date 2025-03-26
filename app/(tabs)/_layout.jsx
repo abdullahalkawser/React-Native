@@ -1,27 +1,23 @@
 import { Tabs } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
-
+import { View } from "react-native";
 
 export default function TabLayout() {
   return (
     <Tabs
       initialRouteName="home"
       screenOptions={{
-        tabBarActiveTintColor: "white",
-        tabBarInactiveTintColor: "#B0BEC5",
+        tabBarActiveTintColor: "#FFD700", // Active color (Gold Yellow)
+        tabBarInactiveTintColor: "#B0BEC5", // Inactive color (Gray)
         tabBarShowLabel: true,
         tabBarLabelStyle: {
-          fontSize: 14, // Medium size for readability
+          fontSize: 13,
           fontWeight: "600",
           textAlign: "center",
-          marginTop: -5, // Space between icon and text
-        },
-        tabBarIconStyle: {
-          alignItems: "center",
-          justifyContent: "center",
+          marginBottom: 5,
         },
         tabBarStyle: {
-          backgroundColor: "#FF6347", // Tomato Red for Tab Bar
+          backgroundColor: "#1E293B", // Dark background (Slate Black)
           borderRadius: 25,
           paddingBottom: 8,
           paddingTop: 8,
@@ -39,7 +35,6 @@ export default function TabLayout() {
         },
       }}
     >
-      {/* Home Tab */}
       <Tabs.Screen
         name="home"
         options={{
@@ -51,31 +46,30 @@ export default function TabLayout() {
         }}
       />
 
-      {/* Order Tab */}
       <Tabs.Screen
         name="bookmark"
         options={{
           title: "Bookmark",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="receipt-long" size={size} color={color} />
+            <MaterialIcons name="bookmark" size={size} color={color} />
           ),
         }}
       />
 
-      {/* Cart Tab */}
       <Tabs.Screen
         name="create"
         options={{
-          title: "Create",
+          title: "Upload",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="shopping-cart" size={size} color={color} />
+            <View>
+              <MaterialIcons name="add" size={size}  color={color} /> {/* White icon color for better contrast */}
+            </View>
           ),
         }}
       />
 
-      {/* Profile Tab */}
       <Tabs.Screen
         name="profile"
         options={{
